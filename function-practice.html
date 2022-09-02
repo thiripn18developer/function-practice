@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smform</title>
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+        *{
+            font-family:'Shadows Into Light', cursive;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin:0;
+            overflow: hidden; 
+        }
+        .box{
+            width: 300px;
+            background: #f4f4f4;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+            padding: 20px;
+        }
+        label{
+            display: block;
+            margin: 10px 0;
+        }
+        .form-control{
+            width: 100%;
+            display: block;
+            padding: 5px;
+        }
+        .btn{
+            width: 100%;
+            color: #fff;
+            font-size: 20px;
+            background: linear-gradient(90deg,#00586A,#92D593);
+            border: none;
+            border-radius: 10px;
+            padding: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h3>Show Name = <span id="replacename">Test</span></h3>
+        <!-- <form action=""> -->
+            <label for="firstname">First Name</label>
+            <input type="text" name="firstname" id="firstname" class="form-control" autocomplete="off" autofocus/>
+
+            <label for="lastname">Last Name</label>
+            <input type="text" name="lastname" id="lastname" class="form-control" autocomplete="off" autofocus/>
+
+            <button type="button" class="btn" onclick="getdata()">Get Name</button>
+        <!-- </form> -->
+    </div>
+    <script type="text/javascript">
+        function getdata() {
+            var getfirstname = document.getElementById('firstname').value;
+            var getlastname = document.getElementById('lastname').value;
+            console.log(getfirstname,getlastname);
+
+            let getreplace = document.getElementById('replacename');
+            getreplace.innerHTML = `${getfirstname} ${getlastname}`;
+            
+            document.getElementById('firstname').value = '';
+            document.getElementById('lastname').value = '';
+            document.getElementById('firstname').focus();
+        }
+    </script>
+</body>
+</html>
